@@ -48,13 +48,7 @@ public class Main {
         String[] busPassengers={"Adjoa","Benjamin","Colin","Dwamena","Elizabeth"};
         String[] stops={"Lake Forest","Silver Spring","Westfield","Olde Towne","Olney"};
 
-        for(String aPassenger:busPassengers)
-        {
-            aBus.board(new Passenger(aPassenger));
 
-            //Assign a random bus stop to a passenger
-            int myStopNumber = randomStop.nextInt(5);
-        }
 
         int counter=0;
         for(String aStop:stops)
@@ -62,6 +56,19 @@ public class Main {
             aBus.getStops().add(new BusStop(counter,aStop));
             counter++;
         }
+
+        for(String aPassenger:busPassengers)
+        {
+            aBus.board(new Passenger(aPassenger));
+
+            //Assign a random bus stop to a passenger
+            int myStopNumber = randomStop.nextInt(5);
+            Passenger passenger1 = new Passenger(aPassenger);
+            BusStop myStop = aBus.getStops().get(myStopNumber);
+            passenger1.setMyStop(myStop);
+        }
+
+        aBus.drive();
 
     }
 }

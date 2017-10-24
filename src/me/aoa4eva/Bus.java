@@ -43,6 +43,11 @@ public class Bus {
         {
             System.out.println("The bus has stopped at "+s.getStopName()+", stop "+s.getStopNumber());
             //Each passenger should annoucne his/her stop when the bus stops at the right place
+for (Passenger eachPassenger:this.getPassengers()){
+    if (eachPassenger.getMyStop().equals(s)){
+        System.out.println(eachPassenger.announceStop());
+    }
+}
             //Each passenger should get off the bus (see the ArrayList Example for hints on what to do)
         }
     }
